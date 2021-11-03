@@ -1,12 +1,11 @@
 package com.abhijeet.springbootwebjpa.service;
 
-import com.abhijeet.springbootwebjpa.data.CourseMaterialData;
-import com.abhijeet.springbootwebjpa.data.StudentData;
-import com.abhijeet.springbootwebjpa.entity.CourseMaterial;
+import com.abhijeet.springbootwebjpa.data.*;
 import com.abhijeet.springbootwebjpa.repository.CourseMaterialrepo;
 import com.abhijeet.springbootwebjpa.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import com.abhijeet.springbootwebjpa.data.courseRepo;
 
 @Component
 public class TestService {
@@ -20,17 +19,30 @@ public class TestService {
     CourseMaterialData courseMaterialData;
     @Autowired
     CourseMaterialrepo courseMaterialrepo;
+    @Autowired
+     courseRepo courseRepo;
+    @Autowired
+    CourseData courseData;
+
+    @Autowired
+    TeacherData teacherData;
+
 
 
 
     public void t(){
 //        addStudent();
 //        addcourseMaterial();
-        getCourseMaterialData();
+//        getCourseMaterialData();
+//        addCourse();
+    }
+
+    private void addCourse() {
+       courseRepo.save(courseData.getCourseData().get(0));
     }
 
     private void getCourseMaterialData() {
-        courseMaterialrepo.findAll().stream().forEach(x -> System.out.println(x));
+//        courseMaterialrepo.findAll().forEach(System.out::println);
     }
 
     private void addcourseMaterial() {
