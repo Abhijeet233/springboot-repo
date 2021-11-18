@@ -32,7 +32,7 @@ public class UserService {
         User user = userRepository.findUserByUserId(id);
         return new ResponseTemplateVo(
                 user,
-                restTemplate.getForObject("http://localhost:9001/department/" + user.getDepartmentId(),
+                restTemplate.getForObject("http://DEPARTMENT-SERVICE/department/" + user.getDepartmentId(),
                         Department.class)
         );
     }
